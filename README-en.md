@@ -1,6 +1,6 @@
 ## SOLMAFORO
 
-Page of the data system for the project SOLMAFORO of the [Museum of science and game](http://www.cienciayjuego.com/).
+Page of the data system for the project SOLMAFORO of the [Museum of science and game](http://www.cienciayjuego.com/jhome/index.php/aes).
 
 ## Author
 
