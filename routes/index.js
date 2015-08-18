@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
+var charge = multer({ dest: 'uploads/' });
 
 var upload = require('../controllers/upload');
 
@@ -10,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 // GET upload
 router.get('/upload', upload.index);
-router.post('/upload/upload', upload.upload);
+router.post('/upload/upload', charge.single('myFile'), upload.upload);
 
 // GET show
 router.get('/show', function(req, res, next) {
