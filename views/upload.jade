@@ -1,0 +1,12 @@
+extends layout
+block content
+   script(type='text/javascript').
+      var html = document.getElementsByTagName('html')[0];
+      html.style.backgroundColor = '#1BBC9B';
+   h1 Subir archivos
+   p Favor ingresar el archivo DATALOG.TXT
+   form(action="upload" method="post" enctype="multipart/form-data")
+      label(for="file") Nombre del archivo:
+      input(type="file" name="file" id="file")
+      br
+      input(type="submit" name="submit" value="Aceptar")
