@@ -1,0 +1,12 @@
+extends layout
+block content
+   script(type='text/javascript').
+      var html = document.getElementsByTagName('html')[0];
+      html.style.backgroundColor = '#1BBC9B';
+   h1 Listo el pollo!!!
+   p El archivo fue subido con éxito
+   ul(style='list-style: none')
+      li
+         a(href='/' style='font-size:30px; color:#525252') Inicio
+      li
+         a(href='/show' style='font-size:30px; color:#525252') Ver datos
