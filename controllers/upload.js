@@ -1,3 +1,5 @@
+'use strict';
+
 var util = require("util");
 var fs = require("fs");
 
@@ -7,16 +9,27 @@ exports.index = function(req, res) {
 
 exports.upload = function(req, res) {
     if (req.file) {
-        console.log(util.inspect(req.file));
-        if (req.file.size === 0) {
-            return next(new Error("Hey, first would you select a file?"));
-        }
-        fs.exists(req.file.path, function(exists) {
-            if(exists) {
-                res.send("Got your file!");
-            } else {
-                res.send("Well, there is no magic for those who don’t believe in it!");
+
+        // reads the file
+        fs.readFile(req.file.path, {encoding: 'utf-8'}, function (err, data) {
+            if (err) throw err;
+            //console.log(data);
+            var re = /([LMCJVSD])\|([0-9][0-9])\.([0-9][0-9])\.([0-9][0-9][0-9][0-9])\|([0-9][0-9]):([0-9][0-9]):([0-9][0-9])\s*T:([0-9]+\.[0-9])\|H:([0-9]+)%\|UV:([0-9]+)/gm;
+            var m;
+            while ((m = re.exec(data)) !== null) {
+                if (m.index === re.lastIndex) {
+                    re.lastIndex++;
+                }
+                console.log(m[0]);
             }
         });
+
+        // delete file
+        fs.unlink(req.file.path, function (err) {
+            if (err) throw err;
+        });
+
+        // response
+        res.render('show');
     }
 };
