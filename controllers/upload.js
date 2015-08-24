@@ -1,7 +1,7 @@
 'use strict';
 
-var util = require("util");
-var fs = require("fs");
+var fs = require('fs');
+var models = require('../models/models');
 
 exports.index = function(req, res) {
     res.render('upload');
