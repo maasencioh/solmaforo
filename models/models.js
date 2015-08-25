@@ -28,8 +28,8 @@ exports.Data = Data;
 var Place = sequelize.import(path.join(__dirname, 'place'));
 exports.Place = Place;
 
-sequelize.sync().then(function () {
-    Place.count().then(function (count) {
+sequelize.sync().then(function() {
+    Place.count().then(function(count) {
         if (count === 0) {
             Place.bulkCreate([
                 {sit_id: 0, sit_name: 'Museo'},
@@ -44,3 +44,10 @@ sequelize.sync().then(function () {
         }
     })
 });
+
+exports.Find = function(place) {
+    if (place)
+        return sequelize.query('SELECT * FROM DATA INNER JOIN PLACEs ON DATA.sit_id = PLACEs.sit_id WHERE sit_name = ' + place, {type: sequelize.QueryTypes.SELECT});
+    else
+        return sequelize.query('SELECT * FROM DATA INNER JOIN PLACEs ON DATA.sit_id = PLACEs.sit_id', {type: sequelize.QueryTypes.SELECT});
+};
