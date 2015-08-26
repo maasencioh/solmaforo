@@ -18,7 +18,7 @@ exports.basic = function(req, res) {
 // GET /show/:place
 exports.places = function(req, res) {
     models.Place.findOne({where:{sit_id: req.place}}).then(function(place) {
-        models.Data.findAll().then(function (data) {
+        models.Data.findAll({where:{sit_id: req.place}}).then(function (data) {
             for (var i = 0; i < data.length; i ++)
                 data[i].sit_name = place.sit_name;
             res.render('show', {data: data});
