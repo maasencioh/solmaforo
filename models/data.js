@@ -5,8 +5,8 @@ module.exports = function (sequelize, DataTypes) {
         sit_id: DataTypes.INTEGER,
         dat_uv: DataTypes.INTEGER,
         dat_hr: DataTypes.INTEGER,
+        dat_count: DataTypes.INTEGER,
         dat_temp: DataTypes.FLOAT,
-        dat_date: DataTypes.DATE,
-        dat_day: DataTypes.STRING
+        dat_date: DataTypes.DATE
     });
 };

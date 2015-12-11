@@ -8,7 +8,6 @@ block content
       table
          thead
             th Sede
-            th Día
             th Fecha
             th Indice UV
             th Humedad relativa
@@ -17,8 +16,7 @@ block content
             each item in data
                tr
                   td= item.sit_name
-                  td= item.dat_day
                   td= item.dat_date
-                  td= item.dat_uv
-                  td= item.dat_hr
-                  td= item.dat_temp
+                  td= item.dat_uv / item.dat_count
+                  td= item.dat_hr / item.dat_count
+                  td= item.dat_temp / item.dat_count
