@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "angelic-digit-119719",
+  "private_key_id": "54de853e6176951928a667137aa2fca62a4fb5ea",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEwAIBADANBgkqhkiG9w0BAQEFAASCBKowggSmAgEAAoIBAQCXxUnfgI0xNr8S\nnSc8mvQIjPh9w9b5HyRG5p+QpxkdFUBbILoge82Bf/oAmeBkyDVumtWABiXex5Sp\nZad5A4bB8VBmiR/b23MDi6JOi6NZKM+slOJFq4Fr7ngAZxXUH0K2vump5XnhVR/f\nYZMobDgRbG5RX3qDdA/KkWs5TvNSdlZEjtgv3pN+eLqvbe7HjLt2zaKADCGCB5zv\nzxbHQiXD3jA05SwfpXr3inoQMZqp4XFo0RrHzleoKpAEzA3ZQqHcdJ60tZ5LfUT5\nxOKzLNOP3acruAeRh3Ng3HAUmWpRtUKp65FO6hgWhWf0EomLIgvTREvc9B2rHLtq\nhUXEiTkZAgMBAAECggEBAItqdcPT6N9udPL6XdK0XLuGE7YjslRCISboL2fHt7AZ\nl3aeh5vTXiI5l0P6FkE+EKc7oCfsfdk56Pv7H25wqNd7funRyOxDmFGHcV9JspHy\nhWL5mSl6tHabJqzoBQtIdBY/JZIl9GHjulWO4oldb9vBiU1Csd4TPXZNQvvv5GC4\nWo3qJslL3YR99OGLKho2i1mwh8Qs4Y9gr79aordPQE3um3vLxrr63PaNirs2o+vq\nyGjr3Owuk8wCVky1IS9vAZZHEz9DR7XYGY8+f2FYfOZjthj4/N0sN7plCgWPxpHU\nh7+HOJrfvX/Gk0EBmGB1C357V8YChWmiBfDziODbAiECgYEA4RTqetkb72HZi1nT\n2qOrKvPa8dkftYA77DpAqzGBuZ1oTQSBjwrAPNpdATpWQgIT1zRxxDdYkhBh9eu9\n2QDh2dW/BT5cbsJlNErK5p3owRiBFLJAHhxDc+b2MP85Upof6CCXMFVdh4yClPI2\nsvW5cByz07DpAHDVZP43bxdq/e0CgYEArJ5cm4K35Wr6VRsbOVwAOc4axDoT3iod\nixE1uXRJKaWecLslfjcARVQU8o9Y1jvILMr49Y86nyqKRzcSLbdEuFIxvHDRbfSL\nD0zOdqdKzF3lXBWCDwonHuPSes84j+7IYjdH16HJoHQV6bVFMnOAulCoTphmissF\nxtNXOn6Hol0CgYEAuJqGAgHFRp2TZhZjioQIJC9i2E7DEgK9ou7YEVCGXC082UYj\n2KTxrDdQZmxpSLQZf7z0vgDCtPGY1rDlwXBWzGnhxLQz7Wekx7G8Hk9PEeg+HjJg\nIhH+RLYeH2uEoTnlh2YLeknZbw4QH4dU04xz7f6sgqgrQgBJFQ7nekbTqrUCgYEA\ngooL7IqROUyKXTvvfZQmk5Bay5REHBlrWBS+tS3MelNGG2hbtTQw3zzzzm87Nl/l\nRIKGfWVAZsfL5IkwFSRoMp/t/tyudGGfnAVwiWh/90b2wYl+XpNF/GU7ciYtVyOz\npBq8GMS/7rh7Lc8osjuI2N1QOoej3EgmaTK/33t6ZP0CgYEAo9Tfwgd19DdQ+Mn9\nDHB0949/1E3nJW7+x8ntvTLIE5TJPBJ30F4NMrxGN/SiXUgUXtxQy2RHX76GRqP7\n5hx461Ajj4eHb2vHgEtMJaf3c+Gq8Omk1IUQxv3xGowPmwbtjh5bbPx2W4TraLLI\nninVyex9gicvdoCux1cv6c36Nm4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "solmaforo@angelic-digit-119719.iam.gserviceaccount.com",
+  "client_id": "114996959544804247548",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/solmaforo%40angelic-digit-119719.iam.gserviceaccount.com"
+}
