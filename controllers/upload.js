@@ -24,7 +24,7 @@ exports.upload = function(req, res) {
 
                 var date = m[1];
 
-                var call = function (sede, date, m) {
+                var call = function (sede, date, m, models) {
                     return function(err, new_date) {
                         if (err) throw err;
 
@@ -69,7 +69,7 @@ exports.upload = function(req, res) {
                     }
                 };
 
-                models.store.get(date, call(sede, date, m));
+                models.store.get(date, call(sede, date, m, models));
             }
         });
 
