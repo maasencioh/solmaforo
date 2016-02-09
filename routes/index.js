@@ -1,8 +1,8 @@
 'use strict';
-
-var express = require('express');
-var router = express.Router();
 var multer = require('multer');
+var express = require('express');
+
+var router = express.Router();
 var charge = multer({ dest: 'uploads/' });
 
 var upload = require('../controllers/upload');

@@ -7,49 +7,69 @@ exports.index = function(req, res) {
     res.render('upload');
 };
 
+var re = /[LMCJVSD]\|([0-9][0-9]\.[0-9][0-9]\.[0-9][0-9][0-9][0-9])\|[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\s*T:([0-9]+\.[0-9])\|?H:([0-9]+)%\|?UV:([0-9]+)/gm;
+
 exports.upload = function(req, res) {
     if (req.file) {
 
         // reads the file
         fs.readFile(req.file.path, {encoding: 'utf-8'}, function (err, data) {
             if (err) throw err;
-            var sede = /Sede ([0-9])/m.exec(data);
-            if (sede)
-                sede = sede[1];
-            var re = /([LMCJVSD])\|(2[0-9])\.(2[0-9])\.(4[0-9])\|(2[0-9]):(2[0-9]):(2[0-9])\s*T:([0-9]+\.[0-9])\|?H:([0-9]+)%\|?UV:([0-9]+)/gm;
+            var sede = (/Sede ([0-9])/m.exec(data))[1];
             var m;
             while ((m = re.exec(data)) !== null) {
                 if (m.index === re.lastIndex) {
                     re.lastIndex++;
                 }
-                var date = new Date();
-                date.setFullYear(m[4], m[3], m[5]);
-                date.setHours(0, 0, 0, 0);
 
-                models.Data.findOne({where:{sit_id: sede, dat_date: date}})
-                    // when the date exist
-                    .then(function(data) {
-                        data.increment({
-                            dat_uv: Number(m[10]),
-                            dat_hr: Number(m[9]),
-                            dat_temp: Number(m[8]),
-                            dat_count: 1
-                        })
-                    })
+                var date = m[1];
 
-                    // when the date didn't exist
-                    .catch(function(err) {
-                        models.Data.create({
-                            sit_id: Number(sede),
-                            dat_uv: Number(m[10]),
-                            dat_hr: Number(m[9]),
-                            dat_temp: Number(m[8]),
-                            dat_date: date,
-                            dat_count: 1
-                        }).then(function (err) {
-                            if (err) throw err;
-                        });
-                    });
+                var call = function (sede, date, m, models) {
+                    return function(err, new_date) {
+                        if (err) throw err;
+
+                        // if date don't exist
+                        if (new_date === undefined) {
+                            var s = {};
+                            s[sede] = {
+                                count: 1,
+                                uv: m[4],
+                                hr: m[3],
+                                temp: m[2]
+                            };
+                            models.store.set(date, s, function (err, key) {
+                                if (err) throw err;
+                                console.log(key);
+                            });
+                        }
+
+                        // if the date already exist
+                        else {
+                            // and the sede also exist
+                            if (new_date[sede]) {
+                                new_date[sede].count += 1;
+                                new_date[sede].uv += m[4];
+                                new_date[sede].hr += m[3];
+                                new_date[sede].temp += m[2];
+                            }
+                            // and the sede don't exist
+                            else
+                                new_date[sede] = {
+                                    count: 1,
+                                    uv: m[4],
+                                    hr: m[3],
+                                    temp: m[2]
+                                };
+
+                            models.store.set(date, new_date[sede], function (err, key) {
+                                if (err) throw err;
+                                console.log(key);
+                            });
+                        }
+                    }
+                };
+
+                models.store.get(date, call(sede, date, m, models));
             }
         });
 

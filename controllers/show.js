@@ -2,26 +2,21 @@
 
 var models = require('../models/models');
 
+var places = {
+    '0': 'Museo',
+    '1': 'Agustin Fernandez',
+    '2': 'SaludCoop Sur',
+    '3': 'Chucua',
+    '4': 'Arborizadora Baja',
+    '5': 'Jose Felix Restrepo'
+};
+
 // GET /show/
 exports.basic = function(req, res) {
-    models.Place.findAll().then(function(place) {
-        models.Data.findAll().then(function (data) {
-            for (var i = 0; i < data.length; i ++)
-                for (var j = 0; j < place.length; j ++)
-                    if (data[i].sit_id === place[j].sit_id)
-                        data[i].sit_name = place[j].sit_name;
-            res.render('show', {data: data});
-        });
-    });
+    res.render('show', {data: undefined});
 };
 
 // GET /show/:place
 exports.places = function(req, res) {
-    models.Place.findOne({where:{sit_id: req.place}}).then(function(place) {
-        models.Data.findAll({where:{sit_id: req.place}}).then(function (data) {
-            for (var i = 0; i < data.length; i ++)
-                data[i].sit_name = place.sit_name;
-            res.render('show', {data: data});
-        });
-    });
+    res.render('show', {data: undefined});
 };
